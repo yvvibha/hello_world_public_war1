@@ -1,1 +1,3 @@
-# hello_world_public_war
+# maven-project
+
+Simple Maven Project
