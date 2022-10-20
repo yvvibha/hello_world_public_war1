@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: pull an image
+      docker_image:
+        name: pacur/centos-7
+        tag: latest
+    - name: pull an image
+      docker_image:
+        name: pacur/centos-7
+        tag: latest
