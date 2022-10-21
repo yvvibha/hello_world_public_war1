@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  connection: local 
   tasks:
     - name: Log into DockerHub
       docker_login:
