@@ -1,11 +1,25 @@
 ---
 - hosts: all
   tasks:
+    - name: Log into DockerHub
+      docker_login:
+        username: siddeshg672
+        password: "{{ docker_password }}"
+        
     - name: pull an image
       docker_image:
-        name: pacur/centos-7
-        tag: latest
-    - name: pull an image
-      docker_image:
-        name: pacur/centos-7
-        tag: latest
+        name: siddeshg672/devopsapp
+        tag: "test-deploy_{{ BUILD_NUMBER }}"
+        
+    - name: remove container
+      docker_container:
+        name: devopsAppDeploy
+        state: absent
+        
+    - name: create a application container
+      docker_container:
+        name: devopsAppDeploy
+        image: "siddeshg672/devopsapp:test-deploy_{{ BUILD_NUMBER }}"
+        state: present
+        exposed_ports:
+          - 8111
