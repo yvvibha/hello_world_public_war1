@@ -10,9 +10,9 @@
         
     - name: pull an image
       docker_image:
-        name: siddeshg672/devopsapp
-        tag: "test-deploy_{{ BUILD_NUMBER }}"
-        
+        name: "siddeshg672/devopsapp:test-deploy_{{ BUILD_NUMBER }}"
+        source: pull
+
     - name: remove container
       docker_container:
         name: devopsAppDeploy
@@ -22,6 +22,6 @@
       docker_container:
         name: devopsAppDeploy
         image: "siddeshg672/devopsapp:test-deploy_{{ BUILD_NUMBER }}"
-        state: present
+        state: started
         exposed_ports:
           - 8111
