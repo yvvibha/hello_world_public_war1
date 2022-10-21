@@ -1,6 +1,5 @@
 ---
-- hosts: localhost
-  connection: local 
+- hosts: websever
   tasks:
     - name: Log into DockerHub
       docker_login:
