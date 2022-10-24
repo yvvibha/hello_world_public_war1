@@ -17,7 +17,7 @@
       become: true
         
     - name: Install Python packages
-      pip3: name={{ item }}
+      pip: name={{ item }}
       with_items:
         - docker
       become: true
