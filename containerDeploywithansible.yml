@@ -23,11 +23,11 @@
     #  become: true
 
       
-    #- name: Log into DockerHub
-     # docker_login:
-        #registry: docker.io
-     #   username: siddeshg672
-      #  password: "{{ docker_password }}"
+    - name: Log into DockerHub
+      docker_login:
+        registry: docker.io
+        username: siddeshg672
+        password: "{{ docker_password }}"
         
     - name: pull an image
       docker_image:
