@@ -1,7 +1,7 @@
 ---
-- hosts: tomcatServer
+- hosts: websever
   vars:
-  - warName: ROOT.war
+  - warName: webapp.war
   - warRemotePath: /home/tomcat
 
   tasks:
@@ -20,9 +20,9 @@
     shell: "cp /usr/local/tomcat/webapps/{{ warName }} /home/tomcat/{{ bkpdate }}/"
     
   - name: Unzip WAR file
-    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/usr/local/tomcat/webapps/ROOT/ copy=no mode=0755 owner=tomcat7 group=tomcat7
+    unarchive: src={{ warRemotePath }}/{{ warName }} dest=/usr/local/tomcat/webapps/ROOT/ copy=no mode=0755 owner=tomcat group=tomcat
     notify:
-        - restart tomcat7
+        - restart tomcat
    
   - name: Delete remote war file
     file: path={{ warRemotePath }}/{{ warName }} state=absent
@@ -31,5 +31,5 @@
     wait_for: port=8080 timeout=60
     
   handlers:
-    - name: Restart tomcat7
-      service: name=tomcat7 state=restarted
+    - name: Restart tomcat
+      service: name=tomcat state=restarted
