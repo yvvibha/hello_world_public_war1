@@ -1,5 +1,5 @@
 ---
-- hosts: localhost
+- hosts: webapp
   become: yes
   become_user: tomcat
   tasks:
