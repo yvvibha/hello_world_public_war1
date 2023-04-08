@@ -27,7 +27,7 @@
     ansible.builtin.copy:
       src: /opt/tomcat/webapps/webapp.war
       dest: /home/ubuntu/backup/wabapp.war
-      remote_src: yes
+      #remote_src: yes
 
   - name: Delete remote war file
     file:
