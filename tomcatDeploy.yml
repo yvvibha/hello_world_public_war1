@@ -24,7 +24,7 @@
       mode: 0777
 
   - name: backup file with owner and permissions
-    ansible.builtin.copy:
+    copy:
       src: /opt/tomcat/webapps/webapp.war
       dest: /home/tomcat/backup/wabapp.war
       remote_src: yes
@@ -35,7 +35,7 @@
       state: absent
 
   - name: deploy file with owner and permissions
-    ansible.builtin.copy:
+    copy:
       src: /home/tomcat/sourcefile/webapp.war
       dest: /opt/tomcat/webapps/wabapp.war
       remote_src: yes
