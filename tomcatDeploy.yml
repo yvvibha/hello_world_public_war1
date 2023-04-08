@@ -1,5 +1,5 @@
 ---
-- hosts: webapp
+- hosts: websever
   become: yes
   become_user: tomcat
   tasks:
