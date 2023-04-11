@@ -21,7 +21,7 @@ metadata:
   labels:
     app: devopsapp
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: devopsapp
@@ -32,6 +32,6 @@ spec:
     spec:
       containers:
       - name: devopsapp
-        image: shstechacademy.jfrog.io/sampledockeruplaod/newimage:32
+        image: shstechacademy.jfrog.io/sampledockeruplaod/newimage:28
         ports:
         - containerPort: 8080
