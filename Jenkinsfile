@@ -1,5 +1,9 @@
 pipeline{
     agent any
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "maven1"
+    }
     stages{
         stage('checkout'){
            steps{
@@ -7,11 +11,11 @@ pipeline{
            } 
         }
         
-        // stage('create binaries'){
-        //     steps{
-        //          sh "mvn clean install"
-        //         }
-        // }
+        stage('create binaries'){
+            steps{
+                 sh "mvn clean install"
+                }
+        }
         // stage('create docker image'){
         //     steps{
         //         sh "docker build -t siddeshg672/devopsapp:latest ."
