@@ -9,7 +9,7 @@ pipeline{
         
         // stage('create binaries'){
         //     steps{
-        //         // sh "mvn clean install"
+        //          sh "mvn clean install"
         //         }
         // }
         // stage('create docker image'){
